@@ -1,0 +1,155 @@
+<app-navbar></app-navbar>
+
+<div class="p-4 sm:ml-64">
+    <!-- Search and Select Area -->
+    <div class="mt-20"></div>
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
+            <!-- Search Box -->
+            <input type="text" placeholder="Search"
+                class="w-full sm:w-60 md:w-72 lg:w-80 px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 text-sm sm:text-base outline-none">
+
+
+        </div>
+    </div>
+
+
+    <!-- Product Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      
+        
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow " (click)="addToCart('Special Jor Chakli', '36pcs', 20)">
+            <img class="rounded-t-lg w-full h-32 sm:h-40 object-cover" src="assets/chakli/48533.jpg" alt="Product 1">
+            <div class="p-3 sm:p-4">
+                <h5 class="text-base sm:text-lg font-semibold tracking-tight text-gray-900"> Special Jor Chakli</h5>
+                <p class="text-xs sm:text-sm text-gray-700 font-semibold ">Quantity-36pcs</p>
+          
+                 <!-- Price input and Save button container -->
+                 <div class="flex items-center justify-between mt-3">
+                    <!-- Save Button -->
+                    <button class="px-3 py-1 text-xs sm:text-sm font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">
+                        Save
+                    </button>
+        
+                    <!-- Editable Price Input -->
+                    <input type="text" value="₹27.00"
+                        class="w-20 sm:w-24 text-xs sm:text-sm border border-gray-300 rounded-md px-2 py-1 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-right">
+                </div>
+            </div>
+        </div>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow" (click)="addToCart('methi Jor Chakli', '36pcs', 27)">
+            <img class="rounded-t-lg w-full h-32 sm:h-40 object-cover" src="assets/chakli/66437.jpg" alt="Product 1">
+            <div class="p-3 sm:p-4">
+                <h5 class="text-base sm:text-lg font-semibold tracking-tight text-gray-900"> Special Jor Chakli</h5>
+                <p class="text-xs sm:text-sm text-gray-700 font-semibold ">Quantity-36pcs</p>
+                <div class="flex items-center justify-between mt-3">
+                    <!-- Save Button -->
+                    <button class="px-3 py-1 text-xs sm:text-sm font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">
+                        Save
+                    </button>
+        
+                    <!-- Editable Price Input -->
+                    <input type="text" value="₹27.00"
+                        class="w-20 sm:w-24 text-xs sm:text-sm border border-gray-300 rounded-md px-2 py-1 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-right">
+                </div>
+            </div>
+        </div>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow" (click)="addToCart('methi Jor Chakli', '36pcs', 27)">
+            <img class="rounded-t-lg w-full h-32 sm:h-40 object-cover" src="assets/chakli/66437.jpg" alt="Product 1">
+            <div class="p-3 sm:p-4">
+                <h5 class="text-base sm:text-lg font-semibold tracking-tight text-gray-900"> Special Jor Chakli</h5>
+                <p class="text-xs sm:text-sm text-gray-700 font-semibold ">Quantity-36pcs</p>
+                <div class="flex items-center justify-between mt-3">
+                    <!-- Save Button -->
+                    <button class="px-3 py-1 text-xs sm:text-sm font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">
+                        Save
+                    </button>
+        
+                    <!-- Editable Price Input -->
+                    <input type="text" value="₹27.00"
+                        class="w-20 sm:w-24 text-xs sm:text-sm border border-gray-300 rounded-md px-2 py-1 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-right">
+                </div>
+            </div>
+        </div>
+       
+      
+        
+        
+        <div class="mb-40 sm:mb-48"></div>
+
+       
+
+
+        <!-- Popup Cart Section -->
+        <!-- Popup Cart Section -->
+        <div
+            class="fixed bottom-0 left-0 w-full sm:max-w-lg sm:left-1/2 sm:-translate-x-1/2 bg-white shadow-lg border-t border-gray-300 p-4">
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs sm:text-sm md:text-base text-left text-gray-700">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="px-2 py-1 sm:px-4 sm:py-2">Product Name</th>
+                            <th class="px-2 py-1 sm:px-4 sm:py-2">Qty</th>
+                            <th class="px-2 py-1 sm:px-4 sm:py-2">Rate</th>
+                            <th class="px-2 py-1 sm:px-4 sm:py-2">Total</th>
+                            <th class="px-2 py-1 sm:px-4 sm:py-2"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of cart">
+                            <td class="px-2 py-1 sm:px-4 sm:py-2">
+                                {{ product.name }} <br>
+                                <span class="text-xs sm:text-sm text-gray-500">{{ product.quantity }}</span>
+                            </td>
+                            
+                            <!-- Editable Quantity Input -->
+                            <td class="px-2 py-1 sm:px-4 sm:py-2">
+                                <input type="number"  class="w-14 text-center border border-gray-300 rounded px-1 py-1" placeholder="{{ product.quantity }}">
+                            </td>
+                            
+                            <!-- Editable Price Input -->
+                            <td class="px-2 py-1 sm:px-4 sm:py-2">
+                                <input type="number"  class="w-16 text-center border border-gray-300 rounded px-1 py-1" placeholder="{{ product.price }}">
+                            </td>
+                            
+                            
+                            <td class="px-2 py-1 sm:px-4 sm:py-2">
+                               {{ product.total }}
+                            </td>
+                            <td class="px-2 py-1 sm:px-4 sm:py-2 text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-700 mx-auto">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </td>
+                            
+                            
+                        </tr>
+                    </tbody>
+                    
+                    <!-- Total Amount Display -->
+                    <div class="flex justify-between items-center mt-3">
+                        <p class="text-sm sm:text-base md:text-lg font-semibold text-gray-900">
+                            Total amt: <span class="text-red-500">Rs.{{ totalAmount }} Only/-</span>
+                        </p>
+                    </div>
+
+                    <!-- <div class="mb-40 sm:mb-48"></div>  -->
+            <!-- Buttons -->
+            <div class="flex flex-wrap gap-2 mt-3">
+                <button
+                    class=" sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-xs sm:text-sm md:text-base">
+                    Update
+                </button>
+                <button
+                (click)="navigateToAreas()"
+                    class=" sm:w-auto bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-xs sm:text-sm md:text-base">
+                    Create Invoice
+                </button>
+                
+            </div>
+      
+
+
+
+
+

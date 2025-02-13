@@ -1,0 +1,126 @@
+<app-navbar></app-navbar>
+<div class="p-4 sm:ml-64">
+    <!-- Search and Select Area -->
+    <div class="mt-20"></div>
+
+
+
+
+    <div class="max-w-md mx-auto bg-gray-900 p-4 rounded-lg">
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                <li class="inline-flex items-center">
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                        <svg class="w-3 h-3 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                        <a href="#"
+                            class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Client</a>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
+                        </svg>
+                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Add shops</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <!-- Back to Areas Button -->
+
+
+
+        <h2 class="text-lg font-medium text-white mt-4">Rajarampuri Shops</h2>
+
+        <!-- add here back to areas button -->
+        <!-- add here back to areas button -->
+        <div class="flex justify-between items-center mb-4 mt-4">
+            <!-- Back to Areas Button -->
+            <button    class="px-6 py-3 text-white border border-white rounded-md hover:bg-gray-700">
+                Back to Area's
+            </button>
+        
+            <!-- ADD Button -->
+            <button (click)="openModal()" class="px-6 py-3 text-white border border-white rounded-md hover:bg-gray-700">
+                ADD
+            </button>
+        </div>
+        
+
+        <div class="border border-gray-500 rounded-lg">
+            <ul class="divide-y divide-gray-500">
+                <li *ngFor="let shop of shops" class="flex justify-between items-center px-4 py-2 text-white">
+                    {{ shop.shopName }}
+                    <button class="px-3 py-1 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">
+                        Delete
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div id="areaModal" tabindex="-1" [attr.inert]="!isModalOpen ? '' : null"
+    class="fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-50 flex" [class.hidden]="!isModalOpen"
+    (click)="outsideClick($event)">
+
+    <!-- Modal Content -->
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-4 sm:mx-auto"
+        (click)="$event.stopPropagation()">
+        <h2 class="text-xl font-bold mb-4 text-gray-800">Add New Client Rajarampuri</h2>
+
+        <!-- Area Name Input -->
+        <label for="areaInput" class="block text-sm font-medium text-gray-700"> Name of shop</label>
+        <input type="text" id="areaInput"
+            class="mt-1 w-full p-3 border border-gray-300 rounded-md focus:ring focus:ring-blue-400 focus:outline-none"
+            placeholder="name of shop">
+
+        <label for="addressInput" class="block text-sm font-medium text-gray-700">Address</label>
+        <input type="text" id="addressInput"
+            class="mt-1 w-full p-3 border border-gray-300 rounded-md focus:ring focus:ring-blue-400 focus:outline-none"
+            placeholder="address">
+
+        <label for="mobileInput" class="block text-sm font-medium text-gray-700">Mobile no</label>
+        <input type="text" id="mobileInput"
+            class="mt-1 w-full p-3 border border-gray-300 rounded-md focus:ring focus:ring-blue-400 focus:outline-none"
+            placeholder="mobile number">
+
+        <!-- Buttons -->
+        <div class="mt-6 flex flex-col sm:flex-row justify-end gap-3">
+            <button (click)="saveArea()"
+                class="w-full sm:w-auto px-5 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                Save
+            </button>
+            <button (click)="closeModal()"
+                class="w-full sm:w-auto px-5 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<app-bottomnav></app-bottomnav>

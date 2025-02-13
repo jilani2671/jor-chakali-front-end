@@ -1,0 +1,113 @@
+<app-navbar></app-navbar>
+
+<div class="p-4 sm:ml-64">
+    <!-- Orders Section -->
+    <div class="mt-16 max-w-5xl mx-auto border border-gray-600 rounded-lg p-6 bg-gray-900 text-white">
+
+
+          <!-- Breadcrumb Navigation -->
+          <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                <li class="inline-flex items-center">
+                    <a href="#" class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-blue-600">
+                        <svg class="w-3 h-3 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <a href="#" class="ms-1 text-sm font-medium text-gray-400 hover:text-blue-600">Bucket</a>
+                    </div>
+                </li>
+                <!-- <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <span class="ms-1 text-sm font-medium text-gray-500">All Payments</span>
+                    </div>
+                </li> -->
+            </ol>
+        </nav>
+        <!-- Back & Action Buttons -->
+        <div class="flex justify-between items-center mb-4 mt-5">
+       
+            <div class="space-x-2">
+                <button class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md">Download Pdf </button>
+                <button class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md">Print </button>
+                
+            </div>
+        </div>
+
+        <h2 class="text-lg font-semibold text-gray-300">Rajarampuri Orders</h2>
+
+      <!-- Area Selection Dropdown -->
+<div class="mb-4">
+    <label for="areaSelect" class="block text-sm font-medium text-gray-300 mb-2">Select Area:</label>
+    <select id="areaSelect" class="bg-gray-800 text-white px-4 py-2 rounded-md border border-gray-600 w-full">
+        <option value="Rajarampuri">Rajarampuri     </option>
+        <option value="Another Area">Another Area</option>
+        <option value="Shivaji Nagar">Shivaji Nagar</option>
+        <option value="Gandhi Chowk">Gandhi Chowk</option>
+    </select>
+</div>
+
+<!-- Table -->
+<div class="overflow-x-auto mt-4">
+    <table class="min-w-full border border-gray-700 text-white text-sm">
+        <thead class="bg-gray-800 text-gray-300">
+            <tr class="text-left">
+                <th class="px-4 py-2 border border-gray-700">No.</th>
+                <th class="px-4 py-2 border border-gray-700">Shop No</th>
+                <th class="px-4 py-2 border border-gray-700">Products</th>
+              
+                <th class="px-4 py-2 border border-gray-700">Action</th>
+             
+
+            </tr>
+        </thead>
+        <tbody class="bg-gray-900 text-gray-300">
+            <tr class="border border-gray-700">
+                <td class="px-4 py-2 border border-gray-700">1</td>
+                <td class="px-4 py-2 border border-gray-700">shop 1</td>
+               
+                <td class="px-4 py-2 border border-gray-700">
+                    <tr>special jor chakli -160 packets</tr>
+                     <br>
+                    <tr>special jor chakli -160 packets</tr>
+                    <br>
+                    <tr>special jor chakli -160 packets</tr>
+                </td>
+              
+                <td class="px-4 py-2 border border-gray-700 flex space-x-2">
+                    <button class="px-3 py-1 bg-green-600 hover:bg-gray-700 text-white rounded-md">Update</button>
+                    <button class="px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded-md">Delete</button>
+                </td>
+            </tr>
+            <tr class="border border-gray-700">
+                <td class="px-4 py-2 border border-gray-700">2</td>
+                <td class="px-4 py-2 border border-gray-700">Another Area</td>
+               
+                <td class="px-4 py-2 border border-gray-700">
+                    
+                </td>
+                
+                <td class="px-4 py-2 border border-gray-700 flex space-x-2">
+
+                    <button class="px-3 py-1 bg-green-600 hover:bg-gray-700 text-white rounded-md">Update</button>
+                    <button class="px-3 py-1 bg-red-600 hover:bg-red-700 text-white rounded-md">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    </div>
+</div>
+
+<app-bottomnav></app-bottomnav>

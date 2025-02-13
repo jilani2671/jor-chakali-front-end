@@ -37,7 +37,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/flowbite/dist/flowbite.min.js"]
           },
           "configurations": {
             "production": {
@@ -101,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "4de4e24d-6a50-4cc8-b6df-ce0bfab3951c"
   }
 }

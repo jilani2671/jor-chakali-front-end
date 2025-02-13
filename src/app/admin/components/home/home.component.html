@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<div class="p-4 sm:ml-64">
+    <!-- Search and Select Area -->
+    <div class="mt-20"></div>
+    <!-- <h1 class="text-lg sm:text-xl font-semibold text-black mb-2 text-center font-serif">Jor Chakli Production</h1> -->
+
+    <!-- <div class="flex justify-center gap-4 mb-6">
+
+        <select class="w-40 sm:w-60 md:w-72 lg:w-80 px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 text-sm sm:text-base">
+            <option>Select Areas</option>
+            <option>Area 1</option>
+            <option>Area 2</option>
+            <option>Area 3</option>
+        </select>
+    </div> -->
+
+    <!-- Icon-based Grid Menu with Flowbite styles -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center font-semibold">
+        <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a [routerLink]="['/areas']" class="flex flex-col items-center">
+              <img src="assets/svg/icons8-client-50.png" class="w-16 h-16 mb-2" alt="Clients">
+              <span class="text-lg text-gray-800">CLIENTS</span>
+            </a>
+          </div>
+        <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a [routerLink]="['/allproducts']" class="flex flex-col items-center">
+            <img src="assets/svg/icons8-products-96.png" class="w-16 h-16 mb-2" alt="Products">
+            <span class="text-lg text-gray-800">Products</span>
+        </a>
+        </div>
+        
+          <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a [routerLink]="['/loading-order']" class="flex flex-col items-center">
+            <img src="assets/svg/icons8-add-to-cart-50.png" class="w-16 h-16 mb-2" alt="Loading Orders">
+            <span class="text-lg text-gray-800">Bucket</span>
+            </a>
+        </div>
+          
+        <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a [routerLink]="['/orders']" class="flex flex-col items-center">
+            <img src="assets/svg/order.png" class="w-16 h-16 mb-2" alt="Orders">
+            <span class="text-lg text-gray-800">ORDERS</span>
+        </a>
+        </div>
+        <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a [routerLink]="['/payments']" class="flex flex-col items-center">
+            <img src="assets/svg/payments.png" class="w-16 h-16 mb-2" alt="Payments">
+            <span class="text-lg text-gray-800">PAYMENTS</span>
+            </a>
+        </div>
+    
+      
+        <div class="flex flex-col items-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <img src="assets/svg/icons8-reports-50.png" class="w-16 h-16 mb-2" alt="Reports">
+            <span class="text-lg text-gray-800">Reports</span>
+        </div>
+    </div>
+</div>
+
+<app-bottomnav></app-bottomnav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+
