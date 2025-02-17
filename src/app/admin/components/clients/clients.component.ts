@@ -1,61 +1,60 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { initFlowbite } from 'flowbite';
-
-
-
-
 
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.css']
 })
-
-
-
 export class ClientsComponent implements OnInit {
   locationId!: number;
+  locationName: string = '';
   shops: any[] = [];
 
+  isModalOpen = false;
+  
+
+  isopenmodel=true;
+   
+
+
+
+  
+  // Define FormGroup for the shop form
+  shopForm = new FormGroup({
+    shopName: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    mobileNo: new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
+  });
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
-  isModalOpen = false;
-  shopName: string = '';
-  address: string = '';
-  mobileNo: string = '';
+  ngOnInit(): void {
+    initFlowbite();
 
- 
+    this.route.params.subscribe(params => {
+      this.locationId = params['locationId'];
+      this.locationName = params['locationName'];
 
+      if (this.locationId) {
+        this.fetchLocationName(this.locationId);
+        this.fetchShops();
+      }
+    });
+  }
 
-
-    ngOnInit(): void {
-      
-      initFlowbite();
-
-      this.route.params.subscribe(params => {
-        this.locationId = params['locationId'];
-        if (this.locationId) {
-          this.fetchShops();
-        }
-      });
-    }
-
-    
-
-
-
-
-  // Open the modal
+  // Open Modal
   openModal(): void {
     this.isModalOpen = true;
   }
 
-  // Close the modal
+  // Close Modal and Reset Form
   closeModal(): void {
     this.isModalOpen = false;
+    this.shopForm.reset();
   }
 
   // Handle outside click to close modal
@@ -65,33 +64,7 @@ export class ClientsComponent implements OnInit {
     }
   }
 
-
-  // Save the area/shop
-  saveArea(): void {
-    if (this.shopName && this.address && this.mobileNo) {
-      // Logic to save the area data, for example, making an API call
-      console.log('Saving Area:', { shopName: this.shopName, address: this.address, mobileNo: this.mobileNo });
-      
-      // After saving, close the modal
-      this.closeModal();
-      
-      // Optionally clear the form fields
-      this.shopName = '';
-      this.address = '';
-      this.mobileNo = '';
-    } else {
-      alert('Please fill in all fields');
-    }
-  }
-
-  // Handle delete button click for a shop
-  deleteShop(shopId: number): void {
-    // Logic to delete the shop
-    console.log('Deleting shop with ID:', shopId);
-  }
-
-
-
+  // Fetch shops by location
   fetchShops(): void {
     this.http.get(`http://localhost:8080/shop/by-location/${this.locationId}`).subscribe({
       next: (response: any) => {
@@ -103,5 +76,46 @@ export class ClientsComponent implements OnInit {
     });
   }
 
-  
+  // Fetch location name
+  fetchLocationName(locationId: number): void {
+    this.http.get<string>(`/location/${locationId}`).subscribe({
+      next: (locationName) => {
+        this.locationName = locationName;
+      },
+      error: (err) => console.error("Error fetching location name:", err)
+    });
+  }
+
+  // Save new shop
+  saveArea(): void {
+    if (this.shopForm.valid) {
+      const shopData = {
+        shopName: this.shopForm.value.shopName,
+        contact: this.shopForm.value.mobileNo, // Using mobileNo as contact
+        location: { locationId: this.locationId }
+      };
+
+      this.http.post(`http://localhost:8080/shop/add`, shopData).subscribe({
+        next: () => {
+          console.log('Shop added successfully');
+          this.fetchShops(); // Refresh the list
+          this.closeModal();
+        },
+        error: (err) => console.error('Error adding shop:', err)
+      });
+    } else {
+      alert('Please fill in all fields correctly');
+    }
+  }
+
+  // Delete shop
+  deleteShop(shopId: number): void {
+    this.http.delete(`http://localhost:8080/shop/delete/${shopId}`).subscribe({
+      next: () => {
+        console.log('Shop deleted successfully');
+        this.fetchShops(); // Refresh the list
+      },
+      error: (err) => console.error('Error deleting shop:', err)
+    });
+  }
 }

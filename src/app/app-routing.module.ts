@@ -71,8 +71,7 @@ const routes: Routes = [
     ,
   },
 
-  { path: 'clients/:locationId', component: ClientsComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: 'clients/:locationId/:locationName', component: ClientsComponent },
   // // Admin route (Redirecting correctly)
   // {
   //   path: 'admin',

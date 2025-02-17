@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminserviceService } from '../../services/adminservice.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class SelectAreasComponent implements OnInit {
   isModalOpen = false; 
   router: any;
 
-  constructor(private fb: FormBuilder, private adminService: AdminserviceService) {}
+
+  constructor(private fb: FormBuilder, private adminService: AdminserviceService ,router: Router) {}
 
   ngOnInit(): void {
     this.locationForm = this.fb.group({
@@ -133,9 +135,5 @@ updateLocation(): void {
 }
 
 
-
-navigateToClients(locationId: number): void {
-  this.router.navigate(['/clients', locationId]); // Redirect to ClientsComponent with locationId
-}
 
 }
