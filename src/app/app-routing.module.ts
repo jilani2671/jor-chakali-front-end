@@ -12,6 +12,7 @@ import { AllpaymentsComponent } from './admin/components/payments/allpayments/al
 import { LoadingOrderComponent } from './admin/components/loading-order/loading-order.component';
 import { AllproductsComponent } from './admin/components/allproducts/allproducts.component';
 import { InvoiceComponent } from './admin/components/invoice/invoice.component';
+import { UpdateproductComponent } from './admin/components/updateproduct/updateproduct.component';
 
 const routes: Routes = [
   // Default route - Redirect to LoginComponent
@@ -68,6 +69,12 @@ const routes: Routes = [
   {
     path: 'invoice',
     component: InvoiceComponent
+    ,
+  },
+
+  {
+    path: 'update-product',
+    component: UpdateproductComponent
     ,
   },
 

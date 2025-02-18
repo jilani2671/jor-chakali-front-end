@@ -21,6 +21,7 @@ import { InvoiceComponent } from './admin/components/invoice/invoice.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminserviceService } from './admin/services/adminservice.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateproductComponent } from './admin/components/updateproduct/updateproduct.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoadingOrderComponent,
     AllproductsComponent,
     InvoiceComponent,
+    UpdateproductComponent,
 
   ],
   imports: [

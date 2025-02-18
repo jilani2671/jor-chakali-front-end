@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminserviceService } from '../../services/adminservice.service';
 import { Router } from '@angular/router';
+import { initFlowbite } from 'flowbite';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class SelectAreasComponent implements OnInit {
   constructor(private fb: FormBuilder, private adminService: AdminserviceService ,router: Router) {}
 
   ngOnInit(): void {
+    initFlowbite();
     this.locationForm = this.fb.group({
       locationName: ['', [Validators.required, Validators.minLength(3)]]
     });
